@@ -1,3 +1,4 @@
+import argparse
 import requests
 import os
 
@@ -41,8 +42,14 @@ def main():
             'Authorization': 'Bearer {}'.format(token),
             'Content-Type': 'application/json',
         }
+    
+    parser = argparse.ArgumentParser(
+        description='Описание что делает программа'
+    )
+    parser.add_argument('user_input', help='ссылка пользователя')
+    args = parser.parse_args()
+    user_input = args.user_input
 
-    user_input = input('Введите ссылку: ')
     short_input = urlparse(user_input)._replace(scheme='').geturl()
 
 
