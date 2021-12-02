@@ -32,8 +32,11 @@ python3 main.py
 
 Если, например, при старте программы ввести длинную ссылку `https://dvmn.org/modules/`, то программа сократит её до 'https://bit.ly/3k7Ybkj`:
 
+![long_link](https://user-images.githubusercontent.com/37913906/144366379-6f524bd1-a471-4d44-9825-64d050ff072c.png)
 
 Если ввести короткую ссылку, то программа покажет количество переходов по ней:
+
+![short_link](https://user-images.githubusercontent.com/37913906/144366405-b4b73753-10d8-414a-8f93-5f0c8a7c6843.png)
 
 
 ## Цель проекта
