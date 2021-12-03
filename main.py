@@ -5,7 +5,6 @@ import os
 from urllib.parse import urlparse
 
 from dotenv import load_dotenv
-load_dotenv()
 
 
 def is_bitlink(short_input, headers):
@@ -37,6 +36,7 @@ def shorten_link(user_input, headers):
     return bitlink
 
 def main():
+    load_dotenv()
     token = os.environ['BITLY_API_TOKEN']
     headers = {
             'Authorization': 'Bearer {}'.format(token),
