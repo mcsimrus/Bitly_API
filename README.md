@@ -27,7 +27,7 @@ pip install -r requirements.txt
 Образец создания переменной окружения (значения вымышленные):
 
 ``` python
-BITLY_API_TOKEN = 'c4e3b33aff5368e83bbcf6be66125ee22sd77s87ds7ss7d'
+BITLY_API_TOKEN='c4e3b33aff5368e83bbcf6be66125ee22sd77s87ds7ss7d'
 ```
 
 Действующий TOKEN для работы с API можно бесплатно получить на сайте [bitly](https://dev.bitly.com/).
