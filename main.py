@@ -30,6 +30,9 @@ def count_clicks(short_input, headers):
 
 def shorten_link(user_input, headers, user_domain,user_group_guid):
 
+    if user_group_guid is None:
+        user_group_guid = 'Blb54sihppy'
+
     data = {'long_url': user_input, 'domain': user_domain, 'group_guid': user_group_guid}
     response = requests.post('https://api-ssl.bitly.com/v4/bitlinks', headers=headers, json=data)
     response.raise_for_status()
@@ -40,8 +43,6 @@ def shorten_link(user_input, headers, user_domain,user_group_guid):
 def main():
     load_dotenv()
     token = os.environ['BITLY_API_TOKEN']
-    user_domain_dflt = os.environ['USER_DOMAIN']
-    user_group_guid_dflt = os.environ['USER_GROUP_GUID']
     
     headers = {
             'Authorization': 'Bearer {}'.format(token),
@@ -52,12 +53,12 @@ def main():
         description='Описание что делает программа'
     )
     parser.add_argument('user_input', help='ссылка пользователя')
-    parser.add_argument('-ud', default=user_domain_dflt, help='user domain')
-    parser.add_argument('-ugg', default=user_group_guid_dflt, help='user group guid')
+    parser.add_argument('-d', '--domain', default='bit.ly', help='user domain')
+    parser.add_argument('-g', '--group', default=None, help='user group guid')
     args = parser.parse_args()
     user_input = args.user_input
-    user_domain = args.ud
-    user_group_guid = args.ugg
+    user_domain = args.domain
+    user_group_guid = args.group
 
     short_input = urlparse(user_input)._replace(scheme='').geturl()
 
