@@ -28,7 +28,7 @@ def count_clicks(short_input, headers):
     return clicks_count
 
 
-def shorten_link(user_input, headers, user_domain,user_group_guid):
+def shorten_link(user_input, headers, user_domain, user_group_guid):
 
     if user_group_guid is None:
         user_group_guid = 'Blb54sihppy'
